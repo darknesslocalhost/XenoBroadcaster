@@ -18,8 +18,7 @@ class BroadcastTask extends Task {
         $message = str_replace("{max}", $this->plugInstance->getMaxPlayers(), $message);
         $message = str_replace("{motd}", $this->plugInstance->getMotd(), $message);
         $message = str_replace("{tps}", $this->plugInstance->getTicksPerSecond(), $message);
-        $message = str_replace("{api}", $this->getServer()->getVersion();
-// Use \pocketmine\VERSION for API version
+        $message = str_replace("{api}", $this->getServer()->getVersion());
         $this->plugInstance->broadcastMessage($prefix . $message);
     }
 }
