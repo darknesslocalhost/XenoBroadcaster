@@ -11,14 +11,14 @@ class BroadcastTask extends Task {
         $prefix = str_replace("&", "§", $this->plugInstance->getConfig()->get("Message-Prefix"));
         $messages = $this->plugInstance->getConfig()->get("Messages");
         $message = $messages[array_rand($messages)];
-        $this->plugInstance = XenoBroadcaster::getInstance()->getServer();
+        $server = $this->plugInstance->getServer(); // Pobieranie obiektu serwera
         $message = str_replace("&", "§", $message);
         $message = str_replace("{break}", "\n", $message);
-        $message = str_replace("{online}", count($this->plugInstance->getOnlinePlayers()), $message);
-        $message = str_replace("{max}", $this->plugInstance->getMaxPlayers(), $message);
-        $message = str_replace("{motd}", $this->plugInstance->getMotd(), $message);
-        $message = str_replace("{tps}", $this->plugInstance->getTicksPerSecond(), $message);
-        $message = str_replace("{api}", $this->getServer()->getVersion());
-        $this->plugInstance->broadcastMessage($prefix . $message);
+        $message = str_replace("{online}", count($server->getOnlinePlayers()), $message);
+        $message = str_replace("{max}", $server->getMaxPlayers(), $message);
+        $message = str_replace("{motd}", $server->getMotd(), $message);
+        $message = str_replace("{tps}", $server->getTicksPerSecond(), $message);
+        $message = str_replace("{api}", $server->getVersion());
+        $server->broadcastMessage($prefix . $message);
     }
 }
