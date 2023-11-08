@@ -28,13 +28,13 @@ class XenoBroadcaster extends PluginBase implements Listener {
 
     public static $serverInstance;
 
-    public function onEnable() {
+    public function onEnable(): void {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         self::$serverInstance = $this;
         $this->hasValidInterval();
     }
 
-    public function onDisable() {
+    public function onDisable(): void {
         $this->getLogger()->info("§6XenoBroadcaster§c has been disabled!");
     }
 
