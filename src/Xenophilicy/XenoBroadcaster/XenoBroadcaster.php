@@ -1,18 +1,4 @@
 <?php
-# MADE BY:
-#  __    __                                          __        __  __  __                     
-# /  |  /  |                                        /  |      /  |/  |/  |                    
-# $$ |  $$ |  ______   _______    ______    ______  $$ |____  $$/ $$ |$$/   _______  __    __ 
-# $$  \/$$/  /      \ /       \  /      \  /      \ $$      \ /  |$$ |/  | /       |/  |  /  |
-#  $$  $$<  /$$$$$$  |$$$$$$$  |/$$$$$$  |/$$$$$$  |$$$$$$$  |$$ |$$ |$$ |/$$$$$$$/ $$ |  $$ |
-#   $$$$  \ $$    $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |$$ |$$ |$$ |      $$ |  $$ |
-#  $$ /$$  |$$$$$$$$/ $$ |  $$ |$$ \__$$ |$$ |__$$ |$$ |  $$ |$$ |$$ |$$ |$$ \_____ $$ \__$$ |
-# $$ |  $$ |$$       |$$ |  $$ |$$    $$/ $$    $$/ $$ |  $$ |$$ |$$ |$$ |$$       |$$    $$ |
-# $$/   $$/  $$$$$$$/ $$/   $$/  $$$$$$/  $$$$$$$/  $$/   $$/ $$/ $$/ $$/  $$$$$$$/  $$$$$$$ |
-#                                         $$ |                                      /  \__$$ |
-#                                         $$ |                                      $$    $$/ 
-#                                         $$/                                        $$$$$$/
-
 namespace Xenophilicy\XenoBroadcaster;
 
 use pocketmine\command\Command;
@@ -20,17 +6,16 @@ use pocketmine\command\CommandSender;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\utils\Config;
-use pocketmine\server\Server;
 
 class XenoBroadcaster extends PluginBase implements Listener {
 
     private $config;
 
-    public static $serverInstance;
+    public static $instance;
 
     public function onEnable(): void {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        self::$serverInstance = $this;
+        self::$instance = $this;
         $this->hasValidInterval();
     }
 
@@ -62,19 +47,20 @@ class XenoBroadcaster extends PluginBase implements Listener {
     private function hasValidInterval(): bool {
         $this->saveDefaultConfig();
         $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
-        if (!is_int($this->config->get("Interval-Delay"))) {
+        $interval = $this->config->get("Interval-Delay");
+
+        if (!is_int($interval)) {
             $this->getLogger()->critical("Invalid interval in the config! Plugin Disabling...");
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return false;
-        } elseif (is_int($this->config->get("Interval-Delay"))) {
+        } else {
             $this->getLogger()->info("§6XenoBroadcaster§a has been enabled!");
-            $this->getScheduler()->scheduleRepeatingTask(new BroadcastTask(), $this->config->get("Interval-Delay") * 20);
+            $this->getScheduler()->scheduleRepeatingTask(new BroadcastTask(), $interval * 20);
             return true;
         }
-        return true;
     }
 
     public static function getInstance() {
-        return self::$serverInstance;
+        return self::$instance;
     }
 }
