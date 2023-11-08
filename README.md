@@ -38,4 +38,6 @@ With this plugin, you can very easily make automatic broadcasts to go off at a s
 **DevTools → https://github.com/pmmp/PocketMine-DevTools** *(If you are using the plugin folder method)*
 
 ## Credits
-* [Xenophilicy](https://github.com/Xenophilicy/)
+* [Xenophilicy](https://github.com/Xenophilicy/)*
+
+* FIXED BY DARKNESSLOCALHOST
