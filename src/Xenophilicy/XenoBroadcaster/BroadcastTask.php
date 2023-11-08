@@ -13,7 +13,11 @@ class BroadcastTask extends Task {
         $message = $messages[array_rand($messages)];
         $server = $this->plugInstance->getServer();
 
-        $message = str_replace(["&", "{break}", "{online}", "{max}", "{motd}", "{tps}", "{api}"], ["§", "\n", count($server->getOnlinePlayers()), $server->getMaxPlayers(), $server->getMotd(), $server->getTicksPerSecond(), $server->getVersion()], $message);
+        $message = str_replace(
+            ["&", "{break}", "{online}", "{max}", "{motd}", "{tps}", "{api}"],
+            ["§", "\n", count($server->getOnlinePlayers()), $server->getMaxPlayers(), $server->getMotd(), $server->getTicksPerSecond(), $server->getVersion()],
+            $message
+        );
 
         $this->plugInstance->broadcastMessage($prefix . $message);
     }
