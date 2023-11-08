@@ -19,6 +19,8 @@ public function onRun(): void {
         $message
     );
 
-    $this->plugInstance->broadcastMessage($prefix . $message);
+    $server = $this->plugInstance->getServer();
+    $server->broadcastMessage($prefix . $message);
+
     }
 }
