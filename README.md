@@ -1,6 +1,4 @@
 # XenoBroadcaster
-[![HitCount](http://hits.dwyl.io/Xenophilicy/XenoBroadcaster.svg)](http://hits.dwyl.io/Xenophilicy/XenoBroadcaster)
-![](https://img.shields.io/discord/490677165289897995.svg?style=flat-square)
 
 # [![Xenophilicy](https://i.imgur.com/My7vJ0U.png)]()
 
@@ -41,3 +39,5 @@ With this plugin, you can very easily make automatic broadcasts to go off at a s
 * [Xenophilicy](https://github.com/Xenophilicy/)*
 
 * FIXED BY DARKNESSLOCALHOST
+
+*  the plugin is better because it has been updated to version 5 and bedxie is still fresh 
