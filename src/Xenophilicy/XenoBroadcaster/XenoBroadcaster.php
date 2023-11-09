@@ -53,7 +53,6 @@ class XenoBroadcaster extends PluginBase implements Listener {
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return false;
         } else {
-            $this->getLogger()->info("§6XenoBroadcaster§a has been enabled!");
             $this->getScheduler()->scheduleRepeatingTask(new BroadcastTask(), $interval * 20);
             return true;
         }
