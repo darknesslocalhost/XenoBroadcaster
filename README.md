@@ -19,11 +19,10 @@ With this plugin, you can very easily make automatic broadcasts to go off at a s
 * Maximum online players → {max}
 * Get motd → {motd}
 * Ticks per second → {tps}
-* Current API → {api}
 ***
 
 ## XenoBroadcaster Details
-* **API:** 3.5.0+
+* **API:** 5.0.0
 * **Version:** 1.0.0
 * **Basic Description:** Easy auto broadcasting!
 * *Easy to edit config.yml file*
