@@ -12,5 +12,5 @@ commands:
     permission: xenobcast.use
     description: Broadcast a message to the server!
 permissions:
-  xenobcast.use:
+  xenobroadcast.use:
     default: op
