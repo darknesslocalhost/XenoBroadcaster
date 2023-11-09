@@ -20,7 +20,6 @@ class XenoBroadcaster extends PluginBase implements Listener {
     }
 
     public function onDisable(): void {
-        $this->getLogger()->info("§6XenoBroadcaster§c has been disabled!");
     }
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
