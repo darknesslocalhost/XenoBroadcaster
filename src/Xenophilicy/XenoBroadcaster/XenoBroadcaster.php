@@ -23,7 +23,7 @@ class XenoBroadcaster extends PluginBase implements Listener {
     }
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
-        if ($sender->hasPermission("xenobcast.use")) {
+        if ($sender->hasPermission("xenobroadcaster.use")) {
             if (isset($args[0])) {
                 switch (strtolower($command->getName())) {
                     case 'bcast':
